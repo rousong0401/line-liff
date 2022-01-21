@@ -488,6 +488,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   right: 0.75rem;
 }
 
+.top-0 {
+  top: 0px;
+}
+
+.left-0 {
+  left: 0px;
+}
+
 .left-1\/2 {
   left: 50%;
 }
@@ -768,6 +776,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.5rem;
 }
 
+.pt-56 {
+  padding-top: 14rem;
+}
+
 .pt-2 {
   padding-top: 0.5rem;
 }
@@ -790,6 +802,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pb-4 {
   padding-bottom: 1rem;
+}
+
+.pt-50\% {
+  padding-top: 50%;
 }
 
 .text-center {
