@@ -4,6 +4,12 @@ input::placeholder {
   color: $gray-300;
 }
 
+input::-webkit-file-upload-button {
+  border-radius: 0;
+  border: 1px solid $gray-100;
+  color: $black;
+}
+
 select {
   font-size: 0.875rem;
   text-align: center;
@@ -13,4 +19,5 @@ select {
 .form-control::placeholder {
   text-align: left;
 }
+
 
