@@ -14,7 +14,7 @@
 
   <div id="app">
     <div style="background-image: url(./img/bg-banner.png);"
-      class="relative bg-center bg-cover bg-no-repeat min-h-screen px-6 pt-5 pb-2">
+      class="relative bg-center bg-cover bg-no-repeat min-h-screen px-6 pt-5">
       <h1 class="text-0px mb-3.5">
         <img src="./img/logo.svg" alt="logo" class="mx-auto">
         活動logo
@@ -22,7 +22,7 @@
       <div class="mb-6">
         <div class="flex justify-center items-center mb-2">
           <img src="./img/left-bamboo.svg" alt="竹子圖片">
-          <h2 class="font-medium text-18px text-white mx-2">請輸入資訊</h2>
+          <h2 class="font-medium text-18px text-white mx-2">基本資料</h2>
           <img src="./img/right-bamboo.svg" alt="竹子圖片">
         </div>
         <div class="space-y-2">
@@ -52,7 +52,9 @@
       <div>
         <div class="flex justify-center items-center mb-2">
           <img src="./img/left-bamboo.svg" alt="竹子圖片">
-          <h2 class="font-medium text-18px text-white mx-2">選擇登錄方式</h2>
+          <h2 class="font-medium text-18px text-white mx-2">
+            發票類型與登錄方式
+          </h2>
           <img src="./img/right-bamboo.svg" alt="竹子圖片">
         </div>
         <div class="space-y-2">
@@ -75,11 +77,12 @@
                 <span class="text-20px text-white ml-3">開啟QRcode掃描</span>
               </a>
             </div>
-            <div class="w-full">
+            <div class="w-full mb-2">
               <button type="button" class="block w-full text-20px bg-primary rounded-9 p-2.5">
                 送 出
               </button>
             </div>
+            <img src="./img/character-2x.png" alt="角色人物圖片" class="mx-auto">
             <img src="./img/character.png" alt="角色人物圖片" class="mx-auto">
           </div>
           <div v-show="nowLoginWay === 'tradition'">
@@ -105,11 +108,10 @@
                 <h3 class="text-white">上傳購買證明圖片</h3>
               </div>
               <input type="file"
-                class="duration-300 block text-gray-300 bg-white border w-full rounded-5 p-1.5 mb-2 focus:border focus:border-gray-500">
-              <div class="relative pt-50%">
-                <img
-                  src="https://images.unsplash.com/photo-1642543492530-872bdd96321e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60"
-                  alt="上傳檔案圖片" class="absolute top-0 left-0 w-full h-full object-cover">
+                class="duration-300 block text-gray-300 bg-white border w-full rounded-5 p-1.5 mb-2 focus:border focus:border-gray-500"
+                @change="uploadFile">
+              <div class="relative pt-50%" v-if="preview">
+                <img :src="preview" :alt="previewName" class="absolute top-0 left-0 w-full h-full object-cover">
               </div>
             </div>
             <div class="mb-4">
@@ -190,9 +192,22 @@
               name: '傳統發票/載具',
               nameEn: 'tradition'
             }
-          ]
+          ],
+          preview: null,
+          previewName: ''
         }
       },
+      methods: {
+        uploadFile(e) {
+          const file = e.target.files[0];
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            this.preview = e.target.result;
+            this.previewName = file.name;
+          }
+          reader.readAsDataURL(file);
+        }
+      }
     });
     app.mount('#app');
   </script>

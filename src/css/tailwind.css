@@ -776,8 +776,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.5rem;
 }
 
-.pt-56 {
-  padding-top: 14rem;
+.pt-50\% {
+  padding-top: 50%;
 }
 
 .pt-2 {
@@ -802,10 +802,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pb-4 {
   padding-bottom: 1rem;
-}
-
-.pt-50\% {
-  padding-top: 50%;
 }
 
 .text-center {
